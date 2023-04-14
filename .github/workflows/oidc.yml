@@ -1,7 +1,9 @@
 name: OIDC
 
-# Listen for workflow dispatch events from client repositories.
-on: workflow_dispatch
+# Run every 15 minutes so we always have a valid OIDC token for clients to use.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
 
 jobs:
   oidc:
