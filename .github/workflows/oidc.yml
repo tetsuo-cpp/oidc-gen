@@ -7,6 +7,9 @@ on:
 
 jobs:
   oidc:
+    permissions:
+      # Needed to access the workflow's OIDC identity.
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v4
