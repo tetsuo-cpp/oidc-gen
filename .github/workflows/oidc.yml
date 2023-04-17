@@ -23,4 +23,5 @@ jobs:
       - name: Upload OIDC token artifact
         uses: actions/upload-artifact@v3.1.0
         with:
+          name: oidc-token
           path: ./oidc-token.txt
