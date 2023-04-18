@@ -1,9 +1,7 @@
 name: OIDC
 
-# Run every 15 minutes so we always have a valid OIDC token for clients to use.
 on:
-  schedule:
-    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 jobs:
   oidc:
