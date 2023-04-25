@@ -29,8 +29,11 @@ jobs:
         run: |
           python -m pip install id &&
           python -m id sigstore > ./oidc-token.txt
+      - name: Encrypt OIDC token
+        run: |
+          openssl enc -aes-256-cbc -k ${{ OIDC_ENCRYPT_KEY }} -in ./oidc-token.txt -out ./encrypted-oidc-token.data
       - name: Upload OIDC token artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: oidc-token
-          path: ./oidc-token.txt
+          name: encrypted-oidc-token
+          path: ./encrypted-oidc-token.data
